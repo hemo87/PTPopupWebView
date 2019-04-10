@@ -109,8 +109,8 @@ open class PTPopupWebView : UIView {
      - parameters:
         - string: URL string
      */
-    open func URL(string urlString: String) -> Self {
-        _ = URL(Foundation.URL(string: urlString))
+    @discardableResult open func URL(string urlString: String) -> Self {
+        self.URL = Foundation.URL(string: urlString)
         return self
     }
 
