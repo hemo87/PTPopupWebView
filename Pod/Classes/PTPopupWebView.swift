@@ -109,8 +109,8 @@ open class PTPopupWebView : UIView {
      - parameters:
         - string: URL string
      */
-    @discardableResult open func URL(string urlString: String) -> Self {
-        URL(Foundation.URL(string: urlString))
+    open func URL(string urlString: String) -> Self {
+        _ = URL(Foundation.URL(string: urlString))
         return self
     }
 
@@ -518,7 +518,7 @@ open class PTPopupWebView : UIView {
     /// regular expression match
     fileprivate func isMatch(_ string: String, pattern: String) -> Bool {
         let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
-        let matches = regex.matches(in: string, options: [], range:NSMakeRange(0, string.characters.count))
+        let matches = regex.matches(in: string, options: [], range:NSMakeRange(0, string.count))
         return matches.count > 0
     }
     
